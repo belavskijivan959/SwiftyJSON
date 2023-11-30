@@ -1,0 +1,17 @@
+
+class AdvancedCombineViewModel: ObservableObject {
+    
+    @Published var data: [String] = []
+    @Published var error = ""
+    let dataService = AdvancedCombineDataService()
+    
+    var cancellables = Set<AnyCancellable>()
+    
+    init() {
+        addSubscribers()
+    }
+    
+    private func addSubscribers() {
+        //dataService.$basicPublisher
+       // dataService.currentValuePublisher
+        dataService.passThroughPublisher2
